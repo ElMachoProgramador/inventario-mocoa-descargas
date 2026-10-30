@@ -1,0 +1,22 @@
+name: Publicar APK verificado
+on:
+  push:
+    branches: [main]
+    paths: ['distribucion/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verificar y publicar
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd distribucion
+          sha256sum --check SHA256.txt
+          VERSION=$(cat VERSION.txt)
+          [[ "$VERSION" =~ ^2\.1\.[0-9]+$ ]]
+          gh release create "v$VERSION" Inventario-Bodega-Mocoa.apk SHA256.txt --repo "$GITHUB_REPOSITORY" --title "Inventario Bodega Mocoa $VERSION" --notes-file notas.md --target "$GITHUB_SHA" --latest
