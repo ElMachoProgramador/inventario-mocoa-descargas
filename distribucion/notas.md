@@ -1,3 +1,3 @@
-versionCode=3009
+versionCode=4012
 
-Laboratorio aislado con activación individual firmada; identidad Google y Picker configurados para pruebas; parciales por vencimiento, cajas y sueltas; plantilla Enalia autorizada probada localmente con cantidades ficticias. Prueba Google entre celulares y carga a Altipal pendientes. Datos locales conservados.
+Sesión conservada al cerrar la app, con vencimiento tras 7 días sin usarla y cierre manual. PIN alternativo sin internet. Pantalla de acceso con Google o correo verificado, reenvío y recuperación; Firebase configurado. Picker nativo de Drive y navegación simplificada por rol. Datos locales conservados y firma original. Registro/verificación de correo real y Drive entre celulares pendientes de validar por el propietario. Entrega parcial 2.2-A: las etapas de nuevas reglas de inventario siguen pendientes. Android solicita confirmar la instalación.
