@@ -18,5 +18,6 @@ jobs:
           cd distribucion
           sha256sum --check SHA256.txt
           VERSION=$(cat VERSION.txt)
-          [[ "$VERSION" =~ ^2\.1\.[0-9]+$ ]]
+          [[ "$VERSION" =~ ^2\.2\.[0-9]+$ ]]
+          grep -Eq '^versionCode=[0-9]+$' notas.md
           gh release create "v$VERSION" Inventario-Bodega-Mocoa.apk SHA256.txt --repo "$GITHUB_REPOSITORY" --title "Inventario Bodega Mocoa $VERSION" --notes-file notas.md --target "$GITHUB_SHA" --latest
